@@ -1,21 +1,30 @@
 pipeline {
     agent any
-
     stages {
-        stage('Build') {
+        stage('Master Branch Deploy Code') {
+            when {
+                branch 'main'
+            }
             steps {
-                echo 'Building..'
+                echo "hii you are in main branch"
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
+        stage('Develop Branch Deploy Code') {
+            when {
+                branch 'Dev'
             }
-        }
-        stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo "hii you are in dev branch"
+           }
+        }
+        stage('sit Branch Deploy Code') {
+            when {
+                branch 'sit'
+            }
+            steps {
+                echo "hii you are in sit branch"
             }
         }
     }
 }
+
